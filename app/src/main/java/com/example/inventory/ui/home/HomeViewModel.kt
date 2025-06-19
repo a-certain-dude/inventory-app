@@ -22,7 +22,15 @@ import com.example.inventory.data.Item
 /**
  * ViewModel to retrieve all items in the Room database.
  */
-class HomeViewModel : ViewModel() {
+class HomeViewModel(itemsRepository: ItemsRepository) : ViewModel() {
+    val homeUiState: StateFlow<HomeUiState> =
+        itemsRepository.getAllItemsStream().map { value -> HomeUiState(value) }
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+                initialValue = HomeUiState()
+            )
+    
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
