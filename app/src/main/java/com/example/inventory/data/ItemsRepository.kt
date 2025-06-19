@@ -19,4 +19,19 @@ package com.example.inventory.data
 /**
  * Repository that provides insert, update, delete, and retrieve of [Item] from a given data source.
  */
-interface ItemsRepository
+interface ItemsRepository {
+    /* retrieve all the items from the given data source */
+    fun getAllItemsStream(): Flow<List<Item>>
+    
+    /* retrieve the item from the data source that matches the id*/
+    fun getItemStream(id: Int): Flow<Item?>
+    
+    /* insert item into the data source */
+    suspend fun insertItem(item: Item)
+    
+    /* delete item from the data source  */
+    suspend fun deleteItem(item: Item)
+    
+    /* update item from the data source */
+    suspend fun updateItem(item: Item)
+}
