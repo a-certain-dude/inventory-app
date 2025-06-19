@@ -15,5 +15,24 @@
  */
 
 package com.example.inventory.data
+import kotlinx.coroutines.flow.Flow
 
-class OfflineItemsRepository : ItemsRepository
+class OfflineItemsRepository(private var itemDao: ItemDao) : ItemsRepository {
+    override fun getAllItemsStream(): Flow<List<Item>> {
+        return itemDao.getAllItems()
+    }
+    
+    override fun getItemStream(id: Int): Flow<Item?> {
+        return itemDao.getItems(id = id)
+    }
+    
+    override suspend fun insertItem(item: Item) = itemDao.insert(item = item)
+    
+    override suspend fun deleteItem(item: Item) {
+        return itemDao.delete(item = item)
+    }
+    
+    override suspend fun updateItem(item: Item) {
+        return itemDao.update(item = item)
+    }
+}
