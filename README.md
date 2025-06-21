@@ -11,8 +11,7 @@ The app also leverages [ViewModel](https://developer.android.com/topic/libraries
 and [Navigation](https://developer.android.com/topic/libraries/architecture/navigation/).
 
 Screenshot
---------------
-inventory-app\display-from-DB.png
+-------------
 <img src="display.png" width="300" />
 
 Getting Started
