@@ -70,7 +70,8 @@ object ItemDetailsDestination : NavigationDestination {
 fun ItemDetailsScreen(
     navigateToEditItem: (Int) -> Unit,
     navigateBack: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    itemDetailsViewModel: ItemDetailsViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
     
     val collectState = itemDetailsViewModel.itemDetails.collectAsState()
