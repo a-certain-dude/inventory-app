@@ -47,11 +47,11 @@ fun InventoryApp(navController: NavHostController = rememberNavController()) {
  */
 @Composable
 fun InventoryTopAppBar(
-    title: String,
-    canNavigateBack: Boolean,
-    modifier: Modifier = Modifier,
-    scrollBehavior: TopAppBarScrollBehavior? = null,
-    navigateUp: () -> Unit = {}
+        title: String,
+        canNavigateBack: Boolean,
+        modifier: Modifier = Modifier,
+        scrollBehavior: TopAppBarScrollBehavior? = null,
+        navigateUp: () -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
         title = { Text(title) },

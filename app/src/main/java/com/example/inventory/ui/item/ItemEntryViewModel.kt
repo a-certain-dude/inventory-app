@@ -97,7 +97,7 @@ fun Item.toItemUiState(isEntryValid: Boolean = false): ItemUiState = ItemUiState
 /**
  * Extension function to convert [Item] to [ItemDetails]
  */
-fun Item.toItemDetails(): ItemDetails = ItemDetails(
+    fun Item.toItemDetails(): ItemDetails = ItemDetails(
     id = id,
     name = name,
     price = price.toString(),
