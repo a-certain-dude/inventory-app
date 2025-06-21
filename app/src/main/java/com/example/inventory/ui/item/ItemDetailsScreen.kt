@@ -72,6 +72,10 @@ fun ItemDetailsScreen(
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    
+    val collectState = itemDetailsViewModel.itemDetails.collectAsState()
+    
+    
     Scaffold(
         topBar = {
             InventoryTopAppBar(
