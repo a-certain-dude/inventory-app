@@ -12,7 +12,7 @@ and [Navigation](https://developer.android.com/topic/libraries/architecture/navi
 
 Screenshot
 -------------
-<img src="display.png" width="300" />
+<img src="displayDB.png" width="300" />
 
 Getting Started
 ---------------
