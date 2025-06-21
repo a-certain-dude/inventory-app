@@ -27,7 +27,13 @@ class ItemDetailsViewModel(savedStateHandle: SavedStateHandle, itemsRepository: 
         ViewModel() {
         
     private val itemId: Int = checkNotNull(savedStateHandle[ItemDetailsDestination.itemIdArg])
-
+    
+    val itemDetails: StateFlow<ItemDetailsUiState> =
+        itemsRepository.getItemStream(id = itemId).filterNotNull()
+            .map { ItemDetailsUiState(itemDetails = it.toItemDetails()) }
+            .stateIn(scope = viewModelScope, started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS), initialValue = ItemDetailsUiState())
+    
+    
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
