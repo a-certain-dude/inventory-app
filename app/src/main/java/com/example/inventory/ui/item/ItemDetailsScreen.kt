@@ -94,7 +94,7 @@ fun ItemDetailsScreen(
         }, modifier = modifier
     ) { innerPadding ->
         ItemDetailsBody(
-            itemDetailsUiState = ItemDetailsUiState(),
+            itemDetailsUiState = collectState.value,
             onSellItem = { },
             onDelete = { },
             modifier = Modifier
