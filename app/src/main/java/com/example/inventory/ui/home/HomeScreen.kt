@@ -70,6 +70,7 @@ fun HomeScreen(
     modifier: Modifier = Modifier
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val collectState by homeViewModel.homeUiState.collectAsState() /* collect flow values from StateFlow */
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
