@@ -61,7 +61,7 @@ fun ItemEntryScreen(
         navigateBack: () -> Unit,
         onNavigateUp: () -> Unit,
         canNavigateBack: Boolean = true,
-        viewModel: ItemEntryViewModel = viewModel(factory = AppViewModelProvider.Factory)
+        editViewModel: ItemEntryViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
         val coroutinesScope = rememberCoroutineScope()
     Scaffold(
