@@ -78,7 +78,7 @@ fun ItemEntryScreen(
             onItemValueChange = viewModel::updateUiState,
             onSaveClick = {
                 coroutinesScope.launch {
-                    viewModel.saveItem()
+                    editViewModel.saveItem()
                     navigateBack()
                 }
             },
