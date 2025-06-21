@@ -74,8 +74,8 @@ fun ItemEntryScreen(
         }
     ) { innerPadding ->
         ItemEntryBody(
-            itemUiState = viewModel.itemUiState,
-            onItemValueChange = viewModel::updateUiState,
+            itemUiState = editViewModel.itemUiState,
+            onItemValueChange = editViewModel::updateUiState,
             onSaveClick = {
                 coroutinesScope.launch {
                     editViewModel.saveItem()
