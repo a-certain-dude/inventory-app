@@ -104,7 +104,14 @@ fun ItemDetailsScreen(
         ItemDetailsBody(
             itemDetailsUiState = collectState.value,
             onSellItem = { },
-            onDelete = { },
+            onDelete = {
+                coroutineScope.launch {
+                    itemDetailsViewModel.delete()
+                    navigateBack()
+                    Log.e(TAG, "delete and backstack")
+                }
+                
+            },
             modifier = Modifier
                 .padding(
                     start = innerPadding.calculateStartPadding(LocalLayoutDirection.current),
