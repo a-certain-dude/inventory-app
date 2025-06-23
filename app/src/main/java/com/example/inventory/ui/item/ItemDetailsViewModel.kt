@@ -37,7 +37,19 @@ class ItemDetailsViewModel(savedStateHandle: SavedStateHandle, itemsRepository: 
     val itemDetails: StateFlow<ItemDetailsUiState> =
         itemsRepository.getItemStream(id = itemId).filterNotNull()
             .map { ItemDetailsUiState(itemDetails = it.toItemDetails()) }
-            .stateIn(scope = viewModelScope, started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS), initialValue = ItemDetailsUiState())
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
+                initialValue = ItemDetailsUiState()
+            )
+    
+     //var itemDelete by mutableStateOf(ItemDetailsUiState())
+    
+   suspend fun delete() {
+            itemsRepository.deleteItem(
+                item = itemDetails.value.itemDetails.toItem()
+            )
+    }
     
     
     companion object {
